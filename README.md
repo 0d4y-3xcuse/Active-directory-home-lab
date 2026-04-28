@@ -175,6 +175,6 @@ The most complex challenge in this build was getting **AD replication working co
 ## About
 
 **Ebrima Jallow** — IT Support Specialist | Sysadmin | Worcester, MA
-- 📧 [LinkedIn](https://linkedin.com/in/YOUR-HANDLE)
-- 🎓 B.Tech Computer Engineering, Delhi Technological University
-- 📜 SANS GFACT (In Progress) | CompTIA A+ (Studying)
+- [LinkedIn](https://www.linkedin.com/in/ebrima-jallow1/)
+- B.Tech Computer Engineering, Delhi Technological University
+- SANS GFACT (In Progress) | CompTIA A+ (Studying)
