@@ -1,10 +1,10 @@
-# 🏢 Enterprise Active Directory Home Lab
+# Enterprise Active Directory Home Lab
 
 > A fully simulated enterprise IT environment built on VMware, featuring Windows Server 2022 domain infrastructure, automated user lifecycle management via PowerShell, and security-hardened Group Policy baselines designed to mirror real-world Tier 1/2 Sysadmin operations.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Lab Architecture](#lab-architecture)
@@ -172,9 +172,9 @@ The most complex challenge in this build was getting **AD replication working co
 
 ## Related Projects
 
-- 🔗 [PowerShell Sysadmin Toolkit](../powershell-sysadmin-toolkit) — Reusable AD automation scripts
-- 🔗 [Small Office Network Lab](../small-office-network-lab) — Cisco-based networking project covering VLAN segmentation, DHCP, and wireless AP deployment
-- 🔗 [IT Support Runbooks](../it-support-runbooks) — Real-world troubleshooting documentation from volunteer IT work
+-  [PowerShell Sysadmin Toolkit](../powershell-sysadmin-toolkit) — Reusable AD automation scripts
+-  [Small Office Network Lab](../small-office-network-lab) — Cisco-based networking project covering VLAN segmentation, DHCP, and wireless AP deployment
+-  [IT Support Runbooks](../it-support-runbooks) — Real-world troubleshooting documentation from volunteer IT work
 
 ---
 
