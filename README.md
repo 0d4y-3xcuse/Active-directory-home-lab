@@ -147,10 +147,16 @@ The most complex challenge in this build was getting **AD replication working co
 
 | Script | Description |
 |---|---|
-| `bulk-user-provision.ps1` | Creates AD users from CSV with OU placement and group assignment |
-| `stale-account-cleanup.ps1` | Detects inactive accounts (90+ days), exports report, disables accounts |
-| `password-reset.ps1` | Resets user password and forces change at next logon with audit log |
-| `ad-audit-report.ps1` | Exports all AD user data (last logon, status, groups) to CSV and JSON |
+| `scripts/New-BulkADUsers.ps1` | Creates AD users from CSV with OU placement, group assignment, and forced password reset |
+| `scripts/Get-StaleAccounts.ps1` | Detects inactive accounts 90+ days, exports report, disables accounts *(coming soon)* |
+| `scripts/Reset-UserPassword.ps1` | Resets password and forces change at next logon with audit log *(coming soon)* |
+| `scripts/Export-ADUserReport.ps1` | Exports all AD user data to CSV and JSON *(coming soon)* |
+
+## Sample Files
+
+| File | Description |
+|---|---|
+| `samples/new-users.csv` | Example CSV input for New-BulkADUsers.ps1 |
 
 ---
 
