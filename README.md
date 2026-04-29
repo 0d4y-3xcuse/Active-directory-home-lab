@@ -1,6 +1,6 @@
 # 🏢 Enterprise Active Directory Home Lab
 
-> A fully simulated enterprise IT environment built on VMware, featuring Windows Server 2022 domain infrastructure, automated user lifecycle management via PowerShell, and security-hardened Group Policy baselines — designed to mirror real-world Tier 1/2 Sysadmin operations.
+> A fully simulated enterprise IT environment built on VMware, featuring Windows Server 2022 domain infrastructure, automated user lifecycle management via PowerShell, and security-hardened Group Policy baselines designed to mirror real-world Tier 1/2 Sysadmin operations.
 
 ---
 
@@ -19,7 +19,7 @@
 
 ## Overview
 
-This lab was built to simulate the kind of enterprise Active Directory environment you'd find at a mid-sized organization — the type of environment I support daily as an IT professional. Rather than just reading about AD administration, I wanted hands-on experience with the full lifecycle: building the domain from scratch, managing identities at scale, enforcing security policy, and automating repetitive Tier 1 tasks that eat up help desk time.
+This lab was built to simulate the kind of enterprise Active Directory environment you'd find at a mid-sized organization, the type of environment I support daily as an IT professional. Rather than just reading about AD administration, I wanted hands-on experience with the full lifecycle: building the domain from scratch, managing identities at scale, enforcing security policy, and automating repetitive Tier 1 tasks that eat up help desk time.
 
 **Goal:** Build a production-realistic AD environment and prove I can operate in it — not just describe it.
 
@@ -129,15 +129,15 @@ Automated the highest-volume Tier 1 tasks a help desk handles daily:
 
 The most complex challenge in this build was getting **AD replication working correctly between DC01 and DC02**, specifically around FSMO role distribution.
 
-**Problem:** After promoting DC02, I noticed replication errors in `repadmin /showrepl` — objects created on DC01 were not consistently syncing to DC02. Additionally, when I attempted to seize certain FSMO roles for testing, DC02 showed inconsistent role recognition.
+**Problem:** After promoting DC02, I noticed replication errors in `repadmin /showrepl` : objects created on DC01 were not consistently syncing to DC02. Additionally, when I attempted to seize certain FSMO roles for testing, DC02 showed inconsistent role recognition.
 
-**Root Cause:** During the initial DC02 promotion, I had a misconfigured DNS setting — DC02 was pointing to its own IP for primary DNS instead of DC01. This caused it to not properly locate the existing domain's DNS zones, which broke the replication topology from the start.
+**Root Cause:** During the initial DC02 promotion, I had a misconfigured DNS setting : DC02 was pointing to its own IP for primary DNS instead of DC01. This caused it to not properly locate the existing domain's DNS zones, which broke the replication topology from the start.
 
 **Resolution:**
 1. Corrected DC02's primary DNS to point to DC01 (`192.168.10.10`) before re-running replication
 2. Ran `repadmin /syncall /AdeP` to force a full sync
 3. Used `netdom query fsmo` to verify all 5 FSMO roles were correctly assigned
-4. Validated replication health with `repadmin /replsummary` — all partitions showed clean
+4. Validated replication health with `repadmin /replsummary` all partitions showed clean
 
 **Lesson:** DNS is the backbone of Active Directory. A misconfigured DNS pointer during DC promotion will silently break replication in ways that aren't immediately obvious. Always verify DNS resolution *before* promoting a replica DC.
 
